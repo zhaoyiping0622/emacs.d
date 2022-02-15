@@ -272,9 +272,14 @@
 ;; Enable evil-leader before Evil
 (require 'evil-leader)
 (evil-leader/set-leader "<SPC>")
-(evil-leader/set-key "<SPC>" 'execute-extended-command)
-(evil-leader/set-key "b" 'switch-to-buffer)
-(evil-leader/set-key "h" 'help-command)
+(evil-leader/set-key
+  "<SPC>" 'execute-extended-command
+  "bt" 'switch-to-buffer
+  "bl" 'list-buffers
+  "bk" 'kill-this-buffer
+  "bK" 'kill-buffer
+  "h" 'help-command
+  )
 (global-evil-leader-mode)
 
 ;; set redo
@@ -287,6 +292,22 @@
 
 ;; display line number
 (global-display-line-numbers-mode)
+
+;; osx clipboard
+(when *is-a-mac*
+  (defun copy-from-osx ()
+    (shell-command-to-string "pbpaste"))
+
+  (defun paste-to-osx (text &optional push)
+    (let ((process-connection-type nil))
+      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
+
+  (setq interprogram-cut-function 'paste-to-osx)
+  (setq interprogram-paste-function 'copy-from-osx)
+  )
+
 
 ;; the last line of local config
 (provide 'init-local)
