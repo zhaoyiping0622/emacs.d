@@ -17,6 +17,10 @@
   "fo" 'find-file
   "fn" 'dired-create-empty-file
   "h" 'help-command
+  ;; avy mode
+  "ss" 'avy-goto-char-timer
+  ;; dired sidebar
+  "dd" 'dired-sidebar-toggle-sidebar
   )
 (global-evil-leader-mode)
 (provide 'init-local-evil-leader)

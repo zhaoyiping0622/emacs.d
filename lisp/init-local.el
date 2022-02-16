@@ -7,6 +7,10 @@
 (maybe-require-package 'keyfreq)
 
 (add-to-list 'load-path (expand-file-name "lisp/init-local" user-emacs-directory))
+
+(maybe-require-package 'dired-sidebar)
+(require ' dired-sidebar)
+
 (require 'init-local-keyfreq)
 (require 'init-local-evil)
 
