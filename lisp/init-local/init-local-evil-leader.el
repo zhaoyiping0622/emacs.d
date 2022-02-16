@@ -8,10 +8,14 @@
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
   "<SPC>" 'execute-extended-command
+  ;; buffer commands
   "bt" 'switch-to-buffer
   "bl" 'list-buffers
   "bk" 'kill-this-buffer
   "bK" 'kill-buffer
+  ;; file commands
+  "fo" 'find-file
+  "fn" 'dired-create-empty-file
   "h" 'help-command
   )
 (global-evil-leader-mode)
