@@ -23,11 +23,7 @@
 (global-display-line-numbers-mode)
 (require 'init-local-clipboard)
 
-(defun open-local-config ()
-  "open this file"
-  (interactive)
-  (find-file "~/.emacs.d/lisp/init-local.el")
-  )
+(require 'init-local-config-change)
 
 ;; the last line of local config
 (provide 'init-local)

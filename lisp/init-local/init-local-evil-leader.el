@@ -9,7 +9,8 @@
 (evil-leader/set-key
   "<SPC>" 'execute-extended-command
   ;; buffer commands
-  "bt" 'switch-to-buffer
+  "bo" 'switch-to-buffer-other-window
+  "bt" 'switch-to-buffer-other-tab
   "bl" 'list-buffers
   "bk" 'kill-this-buffer
   "bK" 'kill-buffer
